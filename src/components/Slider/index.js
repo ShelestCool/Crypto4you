@@ -1,0 +1,65 @@
+import React from "react";
+import { Carousel } from "react-bootstrap";
+
+import "./style.css";
+
+import slider1 from '../../img/slider1.png';
+import slider2 from '../../img/slider2.jpeg';
+import slider3 from '../../img/slider3.jpeg';
+import slider4 from '../../img/slider4.jpeg';
+
+function Slider() {
+        return (
+            <Carousel>
+                <Carousel.Item className="styleSlide">
+                    <img 
+                        className="d-block w-100"
+                        src={slider1}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3 className="titleCrypto">Bitcoin</h3>
+                        <p className="textCrypto">Main crypto coin.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
+                <Carousel.Item className="styleSlide">
+                    <img 
+                        className="d-block w-100"
+                        src={slider2}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3 className="titleCrypto">Ethereum</h3>
+                        <p className="textCrypto">Main crypto coin.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
+                <Carousel.Item className="styleSlide">
+                    <img 
+                        className="d-block w-100"
+                        src={slider3}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3 className="titleCrypto">XRP</h3>
+                        <p className="textCrypto">Main crypto coin.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+
+                <Carousel.Item className="styleSlide">
+                    <img 
+                        className="d-block w-100"
+                        src={slider4}
+                        alt="First slide"
+                    />
+                    <Carousel.Caption>
+                        <h3 className="titleCrypto">LiteCoin</h3>
+                        <p className="textCrypto">Main crypto coin.</p>
+                    </Carousel.Caption>
+                </Carousel.Item>
+            </Carousel>
+        );
+}
+
+export default Slider;

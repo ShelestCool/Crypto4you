@@ -1,0 +1,15 @@
+.imgWhyCrypto {
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.colImgWhy {
+    display: flex;
+    justify-content: center;
+}
+.rowWhy {
+    height: 450px;
+    display: flex;
+    align-items: center;
+}

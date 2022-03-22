@@ -1,0 +1,15 @@
+.imgWhatCrypto {
+    width: 400px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.colImgWhat {
+    display: flex;
+    justify-content: center;
+}
+.rowWhat {
+    height: 450px;
+    display: flex;
+    align-items: center;
+}
