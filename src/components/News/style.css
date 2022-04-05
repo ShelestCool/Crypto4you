@@ -1,0 +1,123 @@
+.AddNews {
+  display:flex;
+  justify-content: space-between;
+
+}
+
+.mainTitle {
+  font-size: 55px;
+  font-weight: bold;
+  color: rgb(39, 40, 42);
+}
+
+.mainTitleText {
+  font-size: 15px;
+}
+
+.titleDiv {
+  margin: 20px 0 20px 0;
+}
+
+.divNewsPost {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: rgba(247, 247, 247, 0.703);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.divNewsPost2 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.news {
+  width: 24%;
+}
+
+.news a{
+  text-decoration: none;
+}
+
+.news2 {
+  width: 48%;
+}
+
+.news2 img {
+  width: 100%;
+  height: 100%;
+}
+
+.news2 a{
+  text-decoration: none;
+}
+
+.divNewsPost:hover {
+  box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.2);
+}
+
+.divNewsPost2:hover {
+  box-shadow: 3px 3px 5px 3px rgba(0,0,0,0.2);
+}
+
+
+.newsCardTitle {
+  margin: 10px 0 13px 0;
+}
+
+.newsMainText{
+  font-size: 14px;
+}
+
+.newsMainText2 p{
+  font-size: 15px;
+}
+
+.newsTitle {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.newsTitle2 {
+  font-size: 25px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.newsDate {
+  font-size: 12px;
+}
+
+.newsDate2 {
+  font-size: 13px;
+}
+
+.mainLink { 
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 10px 10px 0;
+  font-size: 15px;
+}
+
+.mainLink:hover {
+  color: darkorange;
+}
+
+.mainLink2 { 
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px 10px 10px 0;
+  font-size: 17px;
+}
+
+.mainLink2:hover {
+  color: darkorange;
+}
