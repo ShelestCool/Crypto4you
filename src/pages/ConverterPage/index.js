@@ -1,9 +1,5 @@
 const ConverterPage = () => {
-    return (
-        <div>
-            ConverterPage
-        </div>
-    )
-}
+  return <div>конвертер валют</div>;
+};
 
 export default ConverterPage;

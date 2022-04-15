@@ -9,22 +9,20 @@ import { Container } from "react-bootstrap";
 // https://bits.media/rss2/
 
 // const CORS_PROXY = "https://api.codetabs.com/v1/proxy?quest=";
-// const CORS_PROXY = "https://cors-anywhere.herokuapp.com/";
-// const CORS_PROXY = "https://thingproxy.freeboard.io/fetch/";
-const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+// const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+const CORS_PROXY = "https://thingproxy.freeboard.io/fetch/";
 
 const parser = new XMLParser();
 
 function AddNews() {
   const [coinspotFeed, setCoinspotFeed] = useState([]);
   const [forklogFeed, setForklogFeed] = useState([]);
-  const [bitsMediaBlogFeed, setBitsMediaBlogFeed] = useState([]);
+  const [bitNovostiFeed, setBitNovostiFeed] = useState([]);
 
   useEffect(() => {
     (async () => {
       let response = await axios.get(CORS_PROXY + "https://coinspot.io/feed/");
       let jObj = parser.parse(response.data);
-      console.log(jObj);
       setCoinspotFeed(jObj.rss.channel.item);
     })();
   }, []);
@@ -41,10 +39,11 @@ function AddNews() {
 
   useEffect(() => {
     (async () => {
-      let response = await axios.get(CORS_PROXY + "https://bits.media/rss2/");
+      let response = await axios.get(
+        CORS_PROXY + "https://bitnovosti.com/category/novosti/feed/"
+      );
       let jObj = parser.parse(response.data);
-      console.log(jObj);
-      setBitsMediaBlogFeed(jObj.rss.channel.item);
+      setBitNovostiFeed(jObj.rss.channel.item);
     })();
   }, []);
 
@@ -118,8 +117,8 @@ function AddNews() {
         </div>
 
         <div className="news">
-          {!!bitsMediaBlogFeed.length &&
-            bitsMediaBlogFeed.map((item, index) => (
+          {!!bitNovostiFeed.length &&
+            bitNovostiFeed.map((item, index) => (
               <div key={index} className="divNewsPost">
                 <div className="newsCardTitle">
                   <h3
