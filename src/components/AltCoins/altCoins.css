@@ -1,0 +1,101 @@
+.altMainBlockWIB p {
+    font-size: 16px;
+}
+
+.altMainBlockWIB a {
+    color: orange;
+}
+
+.altMainBlockWIB a:hover {
+    text-decoration: none;
+}
+
+.altcoins1 {
+    width: 100%;
+}
+
+.altcoins1Div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.altInfoArticle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.altInfoArticle p {
+    color: gray;
+    text-align: justify;
+}
+
+.altMainTitile {
+    margin-bottom: 30px;
+}
+
+.altPart1Article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.altPart1Article div {
+    width: 48%;
+}
+
+.altPart2Article {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.altPart2Article p {
+    text-align: justify;
+}
+
+.altPart2Article h3 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.altPart2Article li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.altcoins2 {
+    width: 15%;
+    margin: 10px 20px 0px 0px;
+    border-radius: 2px;
+}
+
+.altPart3Article {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.altPart3Article p {
+    text-align: justify;
+}
+
+.altPart3Article h3 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.textArticle3 {
+    margin-top: 30px;
+}
+
+.altcoins3 {
+    width: 10%;
+    margin: 10px 20px 0px 0px;
+    border-radius: 2px;
+}
+
+.altcoins4 {
+    width: 5%;
+    margin: 10px 20px 0px 0px;
+    border-radius: 2px;
+}

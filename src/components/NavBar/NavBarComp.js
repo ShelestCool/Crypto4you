@@ -25,7 +25,7 @@ function NavBarComp() {
                                 <NavDropdown.Item as={Link} to="/whatisbitcoin">Что такое Bitcoin?</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Bitcoin FAQ</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">FAQ по майнингу</NavDropdown.Item>
-                                <NavDropdown.Item href="#action/3.3">Альткоины</NavDropdown.Item>
+                                <NavDropdown.Item as={Link} to="/altcoins">Альткоины</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Мифы о Bitcoin</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action/3.4">Словарь</NavDropdown.Item>

@@ -1,0 +1,149 @@
+.bitcoin1 {
+    width: 100%;
+}
+
+.bitcoin1Div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTitile {
+    margin-bottom: 30px;
+}
+
+.infoArticle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.infoArticle p {
+    color: gray;
+    text-align: justify;
+}
+
+.part1Article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.part1Article div {
+    width: 48%;
+}
+
+.mainBlockWIB p {
+    font-size: 16px;
+}
+
+.mainBlockWIB a {
+    color: orange;
+}
+
+.mainBlockWIB a:hover {
+    text-decoration: none;
+}
+
+.part2Article {
+    margin: 30px 0px 30px 0px;
+}
+
+.part2Article h4 {
+    padding-left: 25px;
+    font-weight: 700;
+}
+
+.part2Article p {
+    padding-left: 50px;
+    font-weight: 700;
+    text-align: justify;
+}
+
+.bitcoin2 {
+    width: 15%;
+    margin: 10px 0px 0px 20px;
+    border-radius: 2px;
+}
+
+.part3Article {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.part3Article p {
+    text-align: justify;
+}
+
+.bitcoin3 {
+    width: 60%;
+}
+
+.centerP {
+    text-align: center;
+}
+
+.part4Article {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.part4Article p {
+    text-align: justify;
+}
+
+.part4Article h3 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.part4Article li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.bitcoin4 {
+    width: 18%;
+    border-radius: 2px;
+    margin: 10px 0px 0px 20px;
+}
+
+.bitcoin5 {
+    width: 25%;
+    border-radius: 2px;
+    margin: 10px 0px 0px 20px;
+}
+
+.part5Article {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.part5Article p {
+    text-align: justify;
+}
+
+.part5Article h3 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.bitcoin8 {
+    width: 25%;
+    border-radius: 2px;
+    margin: 10px 20px 0px 0px;
+}
+
+.part6Article {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.part6Article p {
+    text-align: justify;
+}
+
+.part6Article h3 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}

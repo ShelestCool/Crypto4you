@@ -8,7 +8,8 @@ import {
   HomePage,
   NewsPage,
   ConverterPage,
-  WhatIsBitcoin,
+  WhatIsBitcoinPage,
+  AltCoinsPage,
 } from "./pages";
 import Footer from "./components/Footer";
 
@@ -21,7 +22,8 @@ function App() {
         <Route path="/news" element={<NewsPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/converter" element={<ConverterPage />} />
-        <Route path="/whatisbitcoin" element={<WhatIsBitcoin />} />
+        <Route path="/whatisbitcoin" element={<WhatIsBitcoinPage />} />
+        <Route path="/altcoins" element={<AltCoinsPage />} />
       </Routes>
       <Footer />
     </>
