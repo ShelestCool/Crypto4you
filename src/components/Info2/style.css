@@ -9,7 +9,11 @@
     justify-content: center;
 }
 .rowWhat {
-    height: 450px;
+    height: 400px;
     display: flex;
     align-items: center;
+}
+
+.mainBlockHome3 p{
+    font-size: 16px;
 }

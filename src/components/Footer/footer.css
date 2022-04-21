@@ -1,0 +1,47 @@
+.divFooter {
+  background-color: rgb(34,37,41);
+  padding: 70px 30px 10px 30px;
+}
+
+.mainBlockFooter p{
+  font-size: 14px;
+}
+
+.col1Footer {
+  text-align: center;
+  color: white;
+}
+
+.col2Footer {
+  text-align: center;
+  color: white;
+}
+
+.col3Footer {
+  text-align: center;
+  color: white;
+}
+
+.contactsMails {
+  color: rgb(255, 176, 29);
+}
+
+.iconMail {
+  font-size: 20px;
+}
+
+.col4Footer {
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+}
+
+.col5Footer {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+
+.logo-footer {
+  width: 50px;
+}

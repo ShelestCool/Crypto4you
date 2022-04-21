@@ -8,14 +8,14 @@ import whatBlockChain from "../../img/blockchain.jpeg";
 
 export const Info2 = () => {
   return (
-    <Container>
+    <Container className="mainBlockHome3">
       <Row className="rowWhat">
         <Col className="colImgWhat">
           <img src={whatBlockChain} className="imgWhatCrypto" alt="what img" />
         </Col>
 
         <Col>
-          <h2>Что такое Blockchain?</h2>
+          <h3>Что такое Blockchain?</h3>
           <p className="pt-3">
             Блокчейн (Blockchain) — выстроенная по определённым правилам
             непрерывная последовательная цепочка блоков, содержащих информацию.
