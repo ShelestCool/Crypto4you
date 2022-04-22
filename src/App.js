@@ -1,5 +1,6 @@
 import "./App.css";
 import NavBarComp from "./components/NavBar/NavBarComp";
+import ScrollTop from "./components/ScrollTop";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <NavBarComp />
+      <ScrollTop/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />

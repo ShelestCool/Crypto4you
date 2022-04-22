@@ -1,0 +1,12 @@
+#scrollTop {
+    position: fixed;
+    bottom: 45%;
+    right: 1%;
+    font-size: 40px;
+    z-index: 99;
+    color: rgba(255, 180, 42, 0.678);
+}
+
+#scrollTop:hover {
+    color: rgb(255, 166, 0);
+}

@@ -1,12 +1,12 @@
-import * as React from "react";
+import React from "react";
 import { Container } from "react-bootstrap";
 
-import "./style.css";
+import "./about.css";
 
 const About = () => {
   return (
     <div>
-      <Container>
+      <Container className="mainBlockAbout">
         <h2 className="headerh2">О нас</h2>
         <p>
           <b>Crypto4you</b> - русскоязычный информационный сайт и форум о
