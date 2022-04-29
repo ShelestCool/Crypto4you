@@ -1,13 +1,30 @@
 import React from "react";
 import { Container } from "react-bootstrap";
+import emailjs from "emailjs-com";
 
 import "./about.css";
+import aboutMail from "../../img/aboutMail.png"
 
 const About = () => {
+
+    function sendEmail(e) {
+      e.preventDefault();
+
+      emailjs.sendForm('service_2v4gknu', 'template_pa8557x', e.target, 'sadl_bsEMJ13vyoX7')
+      .then(function() {
+        alert('SUCCESS!');
+
+      }, function(error) {
+        console.log('FAILED...', error);
+      });
+
+      document.getElementById('myForm').reset();
+      }
+
   return (
     <div>
       <Container className="mainBlockAbout">
-        <h2 className="headerh2">О нас</h2>
+        <h2 className="headerh2"><strong>О нас</strong></h2>
         <p>
           <b>Crypto4you</b> - русскоязычный информационный сайт и форум о
           криптовалютах.
@@ -30,8 +47,53 @@ const About = () => {
         </p>
 
         <div>
-          <h2 className="headerh2">Контакты</h2>
-          <p>Форма обратной связи!</p>
+          <h3 className="headerh3">Контакты</h3>
+          <div className="aboutContacts">
+            <div>
+              <img src={aboutMail} alt="img" className="imgMailAbout"/>
+            </div>
+           
+            <div>
+              <p>По стратегическому партнерству и техническим вопросам<br/>
+              <span className="contactsMailsAbout">admin@crypto4you</span></p>
+            </div>
+          </div>
+
+          <div className="aboutContacts">
+            <div>
+              <img src={aboutMail} alt="img" className="imgMailAbout"/>
+            </div>
+
+            <div>
+              <p>По информационному партнерству, размещению рекламных статей, новостей и пресс-релизов<br/> <span className="contactsMailsAbout">content@crypto4you</span></p>
+            </div>
+          </div>
+
+          <div className="aboutContacts">
+            <div>
+              <img src={aboutMail} alt="img" className="imgMailAbout"/>
+            </div>
+
+            <div>
+              <p>По вопросам размещения баннеров и рекламы на форуме<br/> <span className="contactsMailsAbout">contacts@crypto4you</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mailForm">
+          <h3 className="mt-4" align="center">Оставьте нам сообщение</h3>
+          <form onSubmit={sendEmail} id="myForm">
+            <div className="divInputs">
+              <input type="text" name="name" placeholder="Ваше имя..." required/>
+              <input type="email" name="user_email" placeholder="E-mail..." required/>
+            </div>
+
+            <textarea name="message" placeholder="Ваше сообщение..." className="inputTextarea"/>
+
+            <div className="divBtnSubmit">
+              <button type="submit" className="btnSubmit">Отправить</button>
+            </div>
+          </form>
         </div>
       </Container>
     </div>
