@@ -11,6 +11,9 @@ import {
   ConverterPage,
   WhatIsBitcoinPage,
   AltCoinsPage,
+  LoginPage,
+  RegisterPage,
+  CryptoNotesPage,
 } from "./pages";
 import Footer from "./components/Footer";
 
@@ -18,7 +21,7 @@ function App() {
   return (
     <>
       <NavBarComp />
-      <ScrollTop/>
+      <ScrollTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />
@@ -26,6 +29,9 @@ function App() {
         <Route path="/converter" element={<ConverterPage />} />
         <Route path="/whatisbitcoin" element={<WhatIsBitcoinPage />} />
         <Route path="/altcoins" element={<AltCoinsPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/cryptonotes" element={<CryptoNotesPage />} />
       </Routes>
       <Footer />
     </>

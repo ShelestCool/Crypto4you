@@ -1,8 +1,39 @@
 .bitcoinImg {
-    width: 50px;
+    width: 55px;
     padding-right: 7px;
 }
 
 .titleNav {
     padding-right: 15px;
+    font-size: 25px;
+}
+
+.linkNav {
+    display: flex;
+    align-items: center;
+}
+
+.authNavButtons {
+    display: flex;
+}
+
+.logOutButton {
+    display: flex;
+}
+
+.emailLogOut {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 6px;
+    color: rgb(154, 154, 154);
+    font-size: 16px;
+}
+
+.iconLogOut {
+    color: orange;
+    font-size: 40px;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
 }

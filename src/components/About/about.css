@@ -33,7 +33,7 @@
 
 .mailForm {
   background-color: white;
-  width: 75%;
+  width: 65%;
   margin: auto;
   padding: 30px;
   margin-top: 80px;
@@ -41,7 +41,6 @@
 }
 
 .divBtnSubmit {
-  width: 100%;
   text-align: end;
 }
 
