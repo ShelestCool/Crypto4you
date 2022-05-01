@@ -38,8 +38,8 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/cryptonotes">
                 Крипто Заметки
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/converter">
-                Конвертер и курсы криптовалют
+              <NavDropdown.Item as={Link} to="/cryptocurrency">
+                Курсы криптовалют
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -60,10 +60,10 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/altcoins">
                 Альткоины
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              {/* <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">
                 Мифы о Bitcoin
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
 
             <Nav.Link as={Link} to="/about" className="linkNav">
@@ -104,8 +104,8 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/cryptonotes">
                 Крипто Заметки
               </NavDropdown.Item>
-              <NavDropdown.Item as={Link} to="/converter">
-                Конвертер и курсы криптовалют
+              <NavDropdown.Item as={Link} to="/cryptocurrency">
+                Курсы криптовалют
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -126,10 +126,10 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/altcoins">
                 Альткоины
               </NavDropdown.Item>
-              <NavDropdown.Divider />
+              {/* <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.3">
                 Мифы о Bitcoin
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
             </NavDropdown>
 
             <Nav.Link as={Link} to="/about" className="linkNav">

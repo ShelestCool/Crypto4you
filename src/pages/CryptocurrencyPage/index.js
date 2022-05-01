@@ -1,7 +1,7 @@
 import { Container } from "react-bootstrap";
 import ApiCrypto from "../../components/ApiCrypto";
 
-const ConverterPage = () => {
+const CryptocurrencyPage = () => {
   return (
     <Container>
       <ApiCrypto />
@@ -9,4 +9,4 @@ const ConverterPage = () => {
   );
 };
 
-export default ConverterPage;
+export default CryptocurrencyPage;

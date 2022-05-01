@@ -8,7 +8,7 @@ import {
   AboutPage,
   HomePage,
   NewsPage,
-  ConverterPage,
+  CryptocurrencyPage,
   WhatIsBitcoinPage,
   AltCoinsPage,
   LoginPage,
@@ -26,7 +26,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/news" element={<NewsPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/converter" element={<ConverterPage />} />
+        <Route path="/cryptocurrency" element={<CryptocurrencyPage />} />
         <Route path="/whatisbitcoin" element={<WhatIsBitcoinPage />} />
         <Route path="/altcoins" element={<AltCoinsPage />} />
         <Route path="/login" element={<LoginPage />} />
