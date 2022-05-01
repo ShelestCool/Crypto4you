@@ -32,7 +32,8 @@
 }
 
 .mailForm {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
   width: 65%;
   margin: auto;
   padding: 30px;

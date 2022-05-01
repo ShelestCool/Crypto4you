@@ -51,12 +51,12 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/whatisbitcoin">
                 Что такое Bitcoin?
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              {/* <NavDropdown.Item href="#action/3.2">
                 Bitcoin FAQ
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
                 FAQ по майнингу
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               <NavDropdown.Item as={Link} to="/altcoins">
                 Альткоины
               </NavDropdown.Item>
@@ -117,12 +117,12 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/whatisbitcoin">
                 Что такое Bitcoin?
               </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
+              {/* <NavDropdown.Item href="#action/3.2">
                 Bitcoin FAQ
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.3">
                 FAQ по майнингу
-              </NavDropdown.Item>
+              </NavDropdown.Item> */}
               <NavDropdown.Item as={Link} to="/altcoins">
                 Альткоины
               </NavDropdown.Item>

@@ -1,0 +1,33 @@
+.coin-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  color: rgb(36, 36, 36);
+}
+
+.coin-form {
+  display: flex;
+  justify-content: center;
+}
+
+.coin-input {
+  outline:none;
+  width: 70%;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+
+}
+
+.coin-input:hover{
+  border: 2px orange solid;
+  border-radius: 2px;
+  transition: .3s;
+}
+
+.coin-input:focus{
+  border: 2px orange solid;
+  border-radius: 10px;
+  transition: .3s;
+}

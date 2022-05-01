@@ -1,5 +1,12 @@
+import { Container } from "react-bootstrap";
+import ApiCrypto from "../../components/ApiCrypto";
+
 const ConverterPage = () => {
-  return <div>конвертер валют</div>;
+  return (
+    <Container>
+      <ApiCrypto />
+    </Container>
+  );
 };
 
 export default ConverterPage;
