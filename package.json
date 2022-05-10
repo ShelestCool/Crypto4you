@@ -17,6 +17,7 @@
     "fast-xml-parser": "^4.0.7",
     "firebase": "^9.7.0",
     "gsap": "^3.9.1",
+    "jquery": "^3.6.0",
     "php": "^1.0.2",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.2",
