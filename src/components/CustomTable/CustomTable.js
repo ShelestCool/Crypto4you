@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
 import { Table } from "react-bootstrap";
 
-import CustomButton from "../CustomButton/CustomButton";
-import "./CustomTable.css";
+import EditButton from "../EditButton/EditButton";
 
 const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
+  const [coins, setCoins] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+      )
+      .then((res) => {
+        setCoins(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <Table striped bordered hover className="cryptoTable">
       <thead>
@@ -13,8 +27,9 @@ const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
           <th>Криптовалюта</th>
           <th>Цена покупки</th>
           <th>Количество</th>
+          <th>Потрачено</th>
           <th>Курс</th>
-          <th>Итого</th>
+          <th>Итого на балансе</th>
         </tr>
       </thead>
       <tbody>
@@ -24,20 +39,37 @@ const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
             <td>{user.cryptoName}</td>
             <td>{user.cryptoPrice}</td>
             <td>{user.cryptoAmount}</td>
-            <td>{user.cryptoRate}</td>
-            <td>Итого</td>
+            <td>{user.cryptoPrice * user.cryptoAmount + " "}$</td>
+            <td>
+              {coins
+                .filter((coin) => user.cryptoName === coin.id)
+                .map((coin) => coin.current_price) + " "}
+              $
+            </td>
+            <td>
+              {Math.floor(
+                user.cryptoAmount *
+                  coins
+                    .filter((coin) => user.cryptoName === coin.id)
+                    .map((coin) => coin.current_price) *
+                  100
+              ) /
+                100 +
+                " "}
+              $
+            </td>
             <td>
               <div>
-                <CustomButton
-                  label="edit"
+                <EditButton
+                  label="Изменить"
                   classNames="edit-ection"
                   handleClick={handleEditClick}
                   data={{ index, user }}
                   type="button"
                 />
 
-                <CustomButton
-                  label="remove"
+                <EditButton
+                  label="Удалить"
                   classNames="remove-action"
                   handleClick={handleRemoveClick}
                   data={{ index }}

@@ -15,6 +15,7 @@ const Coin = ({
     <div className="coin-conteiner">
       <div className="coin-row">
         <div className="coin">
+          {/* <p>{index + 1}</p> */}
           <img src={image} alt="crypto" />
           <h1>{name}</h1>
           <p className="coin-symbol">{symbol}</p>

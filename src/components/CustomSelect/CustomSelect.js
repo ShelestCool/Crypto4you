@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import SelectCoin from "./../SelectCoin";
-
 import "./CustomSelect.css";
 
 const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
@@ -14,7 +12,6 @@ const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
       )
       .then((res) => {
-        console.log(res.data);
         setCoins(res.data);
       })
       .catch((error) => console.log(error));
@@ -23,15 +20,17 @@ const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
   return (
     <>
       <select
+        className="notes-select"
         value={value}
         placeholder={placeholder}
         onChange={(e) => handleChange(e, fieldName)}
       >
-        {coins.map((coin) => {
-          return <SelectCoin name={coin.name} image={coin.image} />;
-        })}
+        {coins.map((coin) => (
+          <option key={coin.id} value={coin.id}>
+            {coin.name}
+          </option>
+        ))}
       </select>
-      );
     </>
   );
 };

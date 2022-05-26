@@ -1,18 +1,23 @@
-.custBtn button {
+.editBtn button {
    background-color: orange;
    border: 0px;
    border-radius: 2px;
-   width: 90%;
-   margin: 5px;
+   width: 85px;
+   margin: 3px;
    padding: 5px;
    color: white;
-   font-size: 18px;
+   font-size: 14px;
    transition: .5s;
    font-weight: 500;
  }
  
- .custBtn button:hover {
+ .editBtn button:hover {
    transition: .5s;
    background-color: rgb(213, 213, 213);
    color: rgb(120, 120, 120);
+ }
+
+ .editBtn {
+   display: block;
+   align-items: center;
  }

@@ -11,7 +11,6 @@ const initialValues = {
   cryptoName: "",
   cryptoPrice: "",
   cryptoAmount: "",
-  cryptoRate: "",
 };
 
 function CryptoNotes() {
@@ -27,10 +26,7 @@ function CryptoNotes() {
   };
 
   const isFilledFields =
-    userData.cryptoName &&
-    userData.cryptoPrice &&
-    userData.cryptoAmount &&
-    userData.cryptoRate;
+    userData.cryptoName && userData.cryptoPrice && userData.cryptoAmount;
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
@@ -77,67 +73,58 @@ function CryptoNotes() {
     }));
 
   return (
-    <div className="wrapper">
-      <div className="wrapper-content">
-        <div className="table-data">
+    <div>
+        <form
+          onSubmit={handleSubmitUser}
+          onReset={handleCleanClick}
+          className="formNotes"
+        >
+          <CustomSelect
+            placeholder="select"
+            handleChange={handleInputChange}
+            value={userData.cryptoName}
+            fieldName="cryptoName"
+          />
+
+          <CustomInput
+            placeholder="Price"
+            handleChange={handleInputChange}
+            value={userData.cryptoPrice}
+            fieldName="cryptoPrice"
+          />
+
+          <CustomInput
+            placeholder="Amount"
+            handleChange={handleInputChange}
+            value={userData.cryptoAmount}
+            fieldName="cryptoAmount"
+          />
+
+          <CustomButton
+            label="Очистить"
+            classNames=""
+            handleClick={() => {}}
+            data={null}
+            type="reset"
+          />
+
+          <CustomButton
+            label={editableUserData.isEdit ? "Изменить" : "Добавить"}
+            classNames=""
+            handleClick={() => {}}
+            data={null}
+            type="submit"
+            disabled={!isFilledFields}
+          />
+        </form>
+
+        <div>
           <CustomTable
             users={users}
             handleEditClick={handleEditClick}
             handleRemoveClick={handleRemoveClick}
           />
         </div>
-
-        <div>
-          <form onSubmit={handleSubmitUser} onReset={handleCleanClick}>
-            <CustomSelect
-              placeholder="select"
-              handleChange={handleInputChange}
-              value={userData.cryptoName}
-              fieldName="cryptoName"
-            />
-
-            <CustomInput
-              placeholder="Price"
-              handleChange={handleInputChange}
-              value={userData.cryptoPrice}
-              fieldName="cryptoPrice"
-            />
-
-            <CustomInput
-              placeholder="Amount"
-              handleChange={handleInputChange}
-              value={userData.cryptoAmount}
-              fieldName="cryptoAmount"
-            />
-
-            <CustomInput
-              placeholder="Rate"
-              handleChange={handleInputChange}
-              value={userData.cryptoRate}
-              fieldName="cryptoRate"
-            />
-
-            <div className="buttons-wrapper">
-              <CustomButton
-                label="Очистить"
-                classNames=""
-                handleClick={() => {}}
-                data={null}
-                type="reset"
-              />
-
-              <CustomButton
-                label={editableUserData.isEdit ? "Edit" : "Add"}
-                classNames=""
-                handleClick={() => {}}
-                data={null}
-                type="submit"
-                disabled={!isFilledFields}
-              />
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
   );
 }

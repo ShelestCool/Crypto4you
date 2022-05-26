@@ -1,8 +1,8 @@
-import "./App.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
 import NavBarComp from "./components/NavBar/NavBarComp";
 import ScrollTop from "./components/ScrollTop";
-
-import { Routes, Route } from "react-router-dom";
+import Footer from "./components/Footer";
 
 import {
   AboutPage,
@@ -15,7 +15,8 @@ import {
   RegisterPage,
   CryptoNotesPage,
 } from "./pages";
-import Footer from "./components/Footer";
+
+import "./App.css";
 
 function App() {
   return (

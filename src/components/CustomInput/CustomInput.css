@@ -1,0 +1,20 @@
+.notes-input {
+  outline:none;
+  width: 15%;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  margin: 7px;
+}
+
+.notes-input:hover{
+  border: 2px orange solid;
+  border-radius: 2px;
+  transition: .3s;
+}
+
+.notes-input:focus{
+  border: 2px orange solid;
+  border-radius: 5px;
+  transition: .3s;
+}
