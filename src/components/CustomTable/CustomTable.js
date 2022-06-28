@@ -5,7 +5,7 @@ import { Table } from "react-bootstrap";
 
 import EditButton from "../EditButton/EditButton";
 
-const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
+const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
   const [coins, setCoins] = useState([]);
 
   useEffect(() => {
@@ -18,6 +18,10 @@ const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
       })
       .catch((error) => console.log(error));
   }, []);
+
+  // const cryptoSpent = 
+  // const cryptoRate = 
+  // const cryptoTotal = 
 
   return (
     <Table striped bordered hover className="cryptoTable">
@@ -32,25 +36,26 @@ const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
           <th>Итого на балансе</th>
         </tr>
       </thead>
+
       <tbody>
-        {users.map((user, index) => (
-          <tr>
+        {notes.map((note, index) => (
+          <tr key={note.id}>
             <td>{index + 1}</td>
-            <td>{user.cryptoName}</td>
-            <td>{user.cryptoPrice}</td>
-            <td>{user.cryptoAmount}</td>
-            <td>{user.cryptoPrice * user.cryptoAmount + " "}$</td>
+            <td>{note.name}</td>
+            <td>{note.price}</td>
+            <td>{note.amount}</td>
+            <td>{note.price * note.amount + " "}$</td>
             <td>
               {coins
-                .filter((coin) => user.cryptoName === coin.id)
+                .filter((coin) => note.name === coin.id)
                 .map((coin) => coin.current_price) + " "}
               $
             </td>
             <td>
               {Math.floor(
-                user.cryptoAmount *
+                note.amount *
                   coins
-                    .filter((coin) => user.cryptoName === coin.id)
+                    .filter((coin) => note.name === coin.id)
                     .map((coin) => coin.current_price) *
                   100
               ) /
@@ -63,15 +68,15 @@ const CustomTable = ({ users, handleEditClick, handleRemoveClick }) => {
                 <EditButton
                   label="Изменить"
                   classNames="edit-ection"
-                  handleClick={handleEditClick}
-                  data={{ index, user }}
+                  handleClick={() => handleEditClick(note.id)}
+                  data={{ index, note }}
                   type="button"
                 />
 
                 <EditButton
                   label="Удалить"
                   classNames="remove-action"
-                  handleClick={handleRemoveClick}
+                  handleClick={() => handleRemoveClick(note.id)}
                   data={{ index }}
                   type="button"
                 />
