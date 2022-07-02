@@ -27,7 +27,7 @@ const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
       >
         <option selected="selected" hidden="hidden">Select Coin</option>
         {coins.map((coin) => ( 
-          <option key={coin.id} value={coin.id}>
+          <option key={coin.id} value={coin.name}>
             {coin.name}
           </option>
         ))}

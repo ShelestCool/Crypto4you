@@ -17,12 +17,15 @@ const initialValues = {
 };
 
 function CryptoNotes() {
-  const [userData, setUserData] = useState(initialValues);
+  const [noteData, setNoteData] = useState(initialValues);
   const [notes, setNotes] = useState([]);
-  const [editableUserData, setEditableUserData] = useState({
+  const [editableNoteData, setEditableNoteData] = useState({
     isEdit: false,
-    userIndex: null,
+    noteId: null
   });
+
+  const isFilledFields =
+  noteData.cryptoName && noteData.cryptoPrice && noteData.cryptoAmount;
 
   useEffect( () => {
     onSnapshot(collection(db, "user-note"), (snapshot) => {
@@ -31,82 +34,58 @@ function CryptoNotes() {
     })
   }, []);
 
-  const saveChange = async () => {
-    await addDoc(collection(db, "user-note"),{
-      name: userData.cryptoName,
-      price: userData.cryptoPrice,
-      amount: userData.cryptoAmount,
-    }).then(function(res){
-      alert("Note added!")
-    });
-  }
-
   const handleRemoveClick = async (id) => {
-    // setNotes(notes.filter((note, userIndex) => userIndex !== index));
     const docRef = doc(db, "user-note", id);
     await deleteDoc(docRef);
   };
 
   const handleCleanClick = () => {
-    setUserData(initialValues);
-    setEditableUserData({
-      isEdit: false,
-      userIndex: null,
-    });
+    setNoteData(initialValues);
   };
-
-  // const handleRemoveClick = ({ index }) => {
-  //   setNotes(notes.filter((note, userIndex) => userIndex !== index));
-  // };
-
-  const isFilledFields =
-    userData.cryptoName && userData.cryptoPrice && userData.cryptoAmount;
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
 
     if (isFilledFields) {
-      if (editableUserData.isEdit) {
+      if (editableNoteData.isEdit){       
         const editedData = notes;
-        editedData.splice(editableUserData.userIndex, 1, userData);
+        editedData.splice(editableNoteData.noteId, 1, noteData);
 
         setNotes(editedData);
+        console.log(editedData)
 
-        setEditableUserData({
+        const docRef = doc(db, "user-note", editableNoteData.noteId);
+        setDoc(docRef, ...editedData);
+
+        setEditableNoteData({
           isEdit: false,
-          userIndex: null,
+          noteId: null
         });
       } else {
-        setNotes((prevState) => [...prevState, userData]);
+
+        addDoc(collection(db, "user-note"),{
+          cryptoName: noteData.cryptoName,
+          cryptoPrice: noteData.cryptoPrice,
+          cryptoAmount: noteData.cryptoAmount,
+        })
+
+        setNotes((prevState) => [...prevState, noteData]);
       }
 
-      setUserData(initialValues);
+      setNoteData(initialValues);
     }
   };
 
-  // const handleEditClick = async ({ note, index }) => {
-  //   setUserData(note);
-  //   setEditableUserData({
-  //     isEdit: true,
-  //     userIndex: index,
-  //   });
-  // };
-
-  const handleEditClick = async (id) => {
-    // setUserData(note);
-    // setEditableUserData({
-    //   isEdit: true,
-    //   userIndex: index,
-    // });
-
-    const playload = {};
-
-    const docRef = doc(db, "user-note", id);
-    setDoc(docRef, playload);
+  const handleEditClick = (note, id) => {
+    setNoteData(note);
+    setEditableNoteData({
+      isEdit: true,
+      noteId: id
+    });
   };
 
   const handleInputChange = (e, cryptoName) =>
-    setUserData((prevState) => ({
+    setNoteData((prevState) => ({
       ...prevState,
       [cryptoName]: e.target.value,
     }));
@@ -121,21 +100,21 @@ function CryptoNotes() {
           <CustomSelect
             placeholder="select"
             handleChange={handleInputChange}
-            value={userData.cryptoName}
+            value={noteData.cryptoName}
             fieldName="cryptoName"
           />
 
           <CustomInput
             placeholder="Price"
             handleChange={handleInputChange}
-            value={userData.cryptoPrice}
+            value={noteData.cryptoPrice}
             fieldName="cryptoPrice"
           />
 
           <CustomInput
             placeholder="Amount"
             handleChange={handleInputChange}
-            value={userData.cryptoAmount}
+            value={noteData.cryptoAmount}
             fieldName="cryptoAmount"
           />
 
@@ -143,18 +122,16 @@ function CryptoNotes() {
             label="Очистить"
             classNames=""
             handleClick={() => {}}
-            data={null}
             type="reset"
           />
 
           <CustomButton
-            label={editableUserData.isEdit ? "Изменить" : "Добавить"}
+            label={editableNoteData.isEdit ? "Изменить" : "Добавить"}
             // label={"Добавить"}
             classNames=""
-            handleClick={saveChange}
-            data={null}
+            handleClick={() => {}}
             type="submit"
-            // disabled={!isFilledFields}
+            disabled={!isFilledFields}
           />
         </form>
 

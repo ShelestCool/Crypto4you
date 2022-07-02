@@ -19,10 +19,6 @@ const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
       .catch((error) => console.log(error));
   }, []);
 
-  // const cryptoSpent = 
-  // const cryptoRate = 
-  // const cryptoTotal = 
-
   return (
     <Table striped bordered hover className="cryptoTable">
       <thead>
@@ -39,23 +35,23 @@ const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
 
       <tbody>
         {notes.map((note, index) => (
-          <tr key={note.id}>
+          <tr>
             <td>{index + 1}</td>
-            <td>{note.name}</td>
-            <td>{note.price}</td>
-            <td>{note.amount}</td>
-            <td>{note.price * note.amount + " "}$</td>
+            <td>{note.cryptoName}</td>
+            <td>{note.cryptoPrice}</td>
+            <td>{note.cryptoAmount}</td>
+            <td>{note.cryptoPrice * note.cryptoAmount + " "}$</td>
             <td>
               {coins
-                .filter((coin) => note.name === coin.id)
+                .filter((coin) => note.cryptoName === coin.name)
                 .map((coin) => coin.current_price) + " "}
               $
             </td>
             <td>
               {Math.floor(
-                note.amount *
+                note.cryptoAmount *
                   coins
-                    .filter((coin) => note.name === coin.id)
+                    .filter((coin) => note.cryptoName === coin.name)
                     .map((coin) => coin.current_price) *
                   100
               ) /
@@ -68,8 +64,7 @@ const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
                 <EditButton
                   label="Изменить"
                   classNames="edit-ection"
-                  handleClick={() => handleEditClick(note.id)}
-                  data={{ index, note }}
+                  handleClick={() => handleEditClick(note, note.id)}
                   type="button"
                 />
 
@@ -77,7 +72,6 @@ const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
                   label="Удалить"
                   classNames="remove-action"
                   handleClick={() => handleRemoveClick(note.id)}
-                  data={{ index }}
                   type="button"
                 />
               </div>
