@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 
-import {collection, addDoc, onSnapshot, deleteDoc, doc, setDoc} from "firebase/firestore";
+import {collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, serverTimestamp, query, orderBy} from "firebase/firestore";
 import {db} from "../../firebase.js"
 
 import CustomButton from "../CustomButton/CustomButton";
@@ -28,20 +28,14 @@ function CryptoNotes() {
   noteData.cryptoName && noteData.cryptoPrice && noteData.cryptoAmount;
 
   useEffect( () => {
-    onSnapshot(collection(db, "user-note"), (snapshot) => {
-      setNotes(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()
-      })))
-    })
+    const collectionRef = collection(db, "user-note");
+    const q = query(collectionRef, orderBy("timestamp", "desc"))
+
+    const unsub = onSnapshot(q , (snapshot) => 
+    setNotes(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
+  );
+    return unsub;
   }, []);
-
-  const handleRemoveClick = async (id) => {
-    const docRef = doc(db, "user-note", id);
-    await deleteDoc(docRef);
-  };
-
-  const handleCleanClick = () => {
-    setNoteData(initialValues);
-  };
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
@@ -52,10 +46,9 @@ function CryptoNotes() {
         editedData.splice(editableNoteData.noteId, 1, noteData);
 
         setNotes(editedData);
-        console.log(editedData)
 
         const docRef = doc(db, "user-note", editableNoteData.noteId);
-        setDoc(docRef, ...editedData);
+        updateDoc(docRef, ...editedData);
 
         setEditableNoteData({
           isEdit: false,
@@ -67,6 +60,7 @@ function CryptoNotes() {
           cryptoName: noteData.cryptoName,
           cryptoPrice: noteData.cryptoPrice,
           cryptoAmount: noteData.cryptoAmount,
+          timestamp: serverTimestamp(),
         })
 
         setNotes((prevState) => [...prevState, noteData]);
@@ -82,6 +76,20 @@ function CryptoNotes() {
       isEdit: true,
       noteId: id
     });
+
+    window.scrollTo({
+      top: 100,
+      behavior: "smooth"
+  });
+  };
+
+  const handleRemoveClick = async (id) => {
+    const docRef = doc(db, "user-note", id);
+    await deleteDoc(docRef);
+  };
+
+  const handleCleanClick = () => {
+    setNoteData(initialValues);
   };
 
   const handleInputChange = (e, cryptoName) =>
@@ -127,7 +135,6 @@ function CryptoNotes() {
 
           <CustomButton
             label={editableNoteData.isEdit ? "Изменить" : "Добавить"}
-            // label={"Добавить"}
             classNames=""
             handleClick={() => {}}
             type="submit"

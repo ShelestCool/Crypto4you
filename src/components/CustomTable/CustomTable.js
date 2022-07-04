@@ -35,7 +35,7 @@ const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
 
       <tbody>
         {notes.map((note, index) => (
-          <tr>
+          <tr key={note.id}>
             <td>{index + 1}</td>
             <td>{note.cryptoName}</td>
             <td>{note.cryptoPrice}</td>

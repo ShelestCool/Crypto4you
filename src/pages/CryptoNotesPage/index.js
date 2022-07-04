@@ -1,15 +1,15 @@
 import CryptoNotes from "../../components/CryptoNotes";
 
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../hooks/use-auth";
+import { useAuth } from "../../firebase.js";
 import { Container } from "react-bootstrap";
 
 import "./CryptoNotesPage.css";
 
 const CryptoNotesPage = () => {
-  const { isAuth } = useAuth();
+  const currentUser = useAuth();
 
-  return isAuth ? (
+  return currentUser !== null ? (
     <Container className="mainNotesDiv">
       <div className="notesContent">
         <h1 className="p-5" align="center">

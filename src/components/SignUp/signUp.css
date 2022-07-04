@@ -1,0 +1,54 @@
+.authInputs {
+  display: flex;
+  justify-content: center;
+  outline:none;
+}
+
+.authInputs input {
+  outline:none;
+  width: 35%;
+  margin-top: 30px;
+  height: 50px;
+  padding: 5px;
+}
+
+.authInputs input:hover{
+  border: 2px orange solid;
+  border-radius: 2px;
+  transition: .3s;
+}
+
+.authInputs input:focus{
+  border: 2px orange solid;
+  border-radius: 2px;
+  transition: .3s;
+}
+
+.mainBlockAuth {
+  margin-top: 50px;
+  height: 100%;
+  margin-bottom: 15px;
+}
+
+.authBtnSubmit {
+  text-align: center;
+}
+
+.authBtn {
+  background-color: orange;
+  border: 0px;
+  border-radius: 2px;
+  width: 20%;
+  margin-top: 50px;
+  padding: 15px;
+  color: white;
+  font-size: 20px;
+  transition: .5s;
+  font-weight: 500;
+}
+
+.authBtn:hover {
+  transition: .5s;
+  background-color: rgb(213, 213, 213);
+  color: rgb(120, 120, 120);
+}

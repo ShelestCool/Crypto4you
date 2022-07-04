@@ -1,31 +1,52 @@
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { useRef, useState} from 'react';
 
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { FormAuth } from "../FormAuth";
-import { setUser } from "../../store/slices/userSlice";
+import { login, useAuth} from "../../firebase.js";
+
+import "./login.css";
 
 const Login = () => {
-  const dispatch = useDispatch();
+  const [ loading, setLoading] = useState(false);
+  const currentUser = useAuth();
+
   const navigate = useNavigate();
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const handleLogin = (email, password) => {
-    const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
-      .then(({ user }) => {
-        dispatch(
-          setUser({
-            email: user.email,
-            id: user.uid,
-            token: user.accessToken,
-          })
-        );
-        navigate("/");
-      })
-      .catch(() => alert("Пользователя не существует!"));
-  };
+  async function handleLogin() {
+    setLoading(true);
+    try{
+      await login(emailRef.current.value, passwordRef.current.value);
+      navigate("/");
+    } catch {
+      console.log("Ошибка!")
+    }
+    setLoading(false);
+  }
 
-  return <FormAuth title="Log In" handleClick={handleLogin} />;
+  return (
+    <div className="mainBlockAuth">
+      <div className="authInputs">
+        <input
+          ref={emailRef}
+          type="email"
+          placeholder="Email"
+        />
+      </div>
+      <div className="authInputs">
+        <input
+          ref={passwordRef}
+          type="password"
+          placeholder="password"
+        />
+      </div>
+      <div className="authBtnSubmit">
+        <button disabled={loading || currentUser} onClick={handleLogin} className="authBtn">
+          Log In
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export { Login };

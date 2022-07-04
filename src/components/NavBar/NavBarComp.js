@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Navbar, Nav, NavDropdown, Container, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-import { useDispatch } from "react-redux";
-import { useAuth } from "../../hooks/use-auth";
-import { removeUser } from "../../store/slices/userSlice";
+import { useAuth, logout } from "../../firebase.js";
 
 import { BsBoxArrowRight } from "react-icons/bs";
 
@@ -12,11 +10,20 @@ import BitcoinImg from "../../img/Bitcoin.png";
 import "./style.css";
 
 function NavBarComp() {
-  const dispatch = useDispatch();
+  const currentUser = useAuth();
+  const [ loading, setLoading] = useState(false);
 
-  const { isAuth, email } = useAuth();
+  async function handleLogout() {
+    setLoading(true);
+    try{
+      await logout();
+    } catch {
+      alert("Ошибка!")
+    }
+    setLoading(false);
+  }
 
-  return isAuth ? (
+  return currentUser ? (
     <Navbar bg="dark" variant={"dark"} expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/" className="titleNav">
@@ -51,19 +58,9 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/whatisbitcoin">
                 Что такое Bitcoin?
               </NavDropdown.Item>
-              {/* <NavDropdown.Item href="#action/3.2">
-                Bitcoin FAQ
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                FAQ по майнингу
-              </NavDropdown.Item> */}
               <NavDropdown.Item as={Link} to="/altcoins">
                 Альткоины
               </NavDropdown.Item>
-              {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">
-                Мифы о Bitcoin
-              </NavDropdown.Item> */}
             </NavDropdown>
 
             <Nav.Link as={Link} to="/about" className="linkNav">
@@ -72,10 +69,11 @@ function NavBarComp() {
           </Nav>
           <div className="logOutButton">
             <div>
-              <p className="emailLogOut">{email}</p>
+              <p className="emailLogOut">{currentUser?.email}</p>
             </div>
             <BsBoxArrowRight
-              onClick={() => dispatch(removeUser())}
+              disabled={loading || !currentUser}
+              onClick={handleLogout}
               className="iconLogOut"
             />
           </div>
@@ -117,19 +115,9 @@ function NavBarComp() {
               <NavDropdown.Item as={Link} to="/whatisbitcoin">
                 Что такое Bitcoin?
               </NavDropdown.Item>
-              {/* <NavDropdown.Item href="#action/3.2">
-                Bitcoin FAQ
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">
-                FAQ по майнингу
-              </NavDropdown.Item> */}
               <NavDropdown.Item as={Link} to="/altcoins">
                 Альткоины
               </NavDropdown.Item>
-              {/* <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.3">
-                Мифы о Bitcoin
-              </NavDropdown.Item> */}
             </NavDropdown>
 
             <Nav.Link as={Link} to="/about" className="linkNav">
