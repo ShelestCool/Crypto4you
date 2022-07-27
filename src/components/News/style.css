@@ -55,6 +55,10 @@
   height: 100%;
 }
 
+.news2 iframe {
+  width: 100%;
+}
+
 .news2 a{
   text-decoration: none;
 }
