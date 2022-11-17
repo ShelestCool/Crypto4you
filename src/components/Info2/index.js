@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import "./style.css";
 
-import whatBlockChain from "../../img/blockchain.jpeg";
+import whatBlockChain from "../../img/homePage/blockchain.jpeg";
 
 export const Info2 = () => {
   return (

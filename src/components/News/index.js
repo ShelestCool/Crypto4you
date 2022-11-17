@@ -7,10 +7,10 @@ import { Container } from "react-bootstrap";
 // https://ru.investing.com/rss/news_301.rss
 // https://coinspot.io/feed/
 // https://bits.media/rss2/
+// https://forklog.com/news/feed/
 
-// const CORS_PROXY = "https://api.codetabs.com/v1/proxy?quest=";
-// const CORS_PROXY = "https://api.allorigins.win/raw?url=";
-const CORS_PROXY = "https://thingproxy.freeboard.io/fetch/";
+const CORS_PROXY = "https://api.allorigins.win/raw?url=";
+// const CORS_PROXY = "https://thingproxy.freeboard.io/fetch/";
 
 const parser = new XMLParser();
 
@@ -29,9 +29,7 @@ function AddNews() {
 
   useEffect(() => {
     (async () => {
-      let response = await axios.get(
-        CORS_PROXY + "https://forklog.com/news/feed/"
-      );
+      let response = await axios.get(CORS_PROXY + "https://ihodl.com/feed/");
       let jObj = parser.parse(response.data);
       setForklogFeed(jObj.rss.channel.item);
     })();
@@ -39,9 +37,7 @@ function AddNews() {
 
   useEffect(() => {
     (async () => {
-      let response = await axios.get(
-        CORS_PROXY + "https://bitnovosti.com/category/novosti/feed/"
-      );
+      let response = await axios.get(CORS_PROXY + "https://bits.media/rss2/");
       let jObj = parser.parse(response.data);
       setBitNovostiFeed(jObj.rss.channel.item);
     })();
@@ -98,6 +94,7 @@ function AddNews() {
                   <span className="newsDate2">{item.pubDate}</span>
                 </div>
                 <base target="_blank"></base>
+                <div dangerouslySetInnerHTML={{ __html: item.url }}></div>
                 <div
                   className="newsMainText2"
                   dangerouslySetInnerHTML={{ __html: item.description }}

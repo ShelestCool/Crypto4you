@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import cod from "../../img/fon2.jpeg"
+import cod from "../../img/homePage/fon2.jpeg";
 
 const Styles = styled.div`
   .div-content {
