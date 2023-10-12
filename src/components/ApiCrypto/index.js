@@ -24,6 +24,10 @@ function ApiCrypto() {
     setSearch(e.target.value);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   const filteredCoins = coins.filter((coin) =>
     coin.name.toLowerCase().includes(search.toLowerCase())
   );
@@ -32,7 +36,7 @@ function ApiCrypto() {
     <div className="coin-app">
       <div className="coin-search">
         <h1 className="coin-text">Поиск криптовалюты</h1>
-        <form className="coin-form">
+        <form className="coin-form" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Поиск"

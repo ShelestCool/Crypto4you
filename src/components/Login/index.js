@@ -19,7 +19,7 @@ const Login = () => {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch {
-      console.log("Ошибка!")
+      alert("Authorisation Error!");
     }
     setLoading(false);
   }

@@ -19,7 +19,7 @@ const SignUp = () => {
       await signup(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch {
-      alert("Ошибка!")
+      alert("Registration Error!")
     }
     setLoading(false);
   }
