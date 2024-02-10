@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from "react";
 
-import {collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, serverTimestamp, query, orderBy} from "firebase/firestore";
-import {db} from "../../firebase.js"
-
+import {collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, serverTimestamp, query, orderBy, where} from "firebase/firestore";
+import {db, auth} from "../../firebase.js"
 import CustomButton from "../CustomButton/CustomButton";
 import CustomInput from "../CustomInput/CustomInput";
 import CustomSelect from "../CustomSelect/CustomSelect";
 import CustomTable from "../CustomTable/CustomTable";
-
 import "./cryptoNotes.css";
 
 const initialValues = {
@@ -24,31 +22,32 @@ function CryptoNotes() {
     noteId: null
   });
 
-  const isFilledFields =
-  noteData.cryptoName && noteData.cryptoPrice && noteData.cryptoAmount;
+  const isFilledFields = noteData.cryptoName && noteData.cryptoPrice && noteData.cryptoAmount;
+
+  const currentUser = auth.currentUser;
+  const userId = currentUser ? currentUser.uid : null;
 
   useEffect( () => {
     const collectionRef = collection(db, "user-note");
-    const q = query(collectionRef, orderBy("timestamp", "desc"))
+    const q = query(collectionRef, where("userId", "==", userId), orderBy("timestamp", "desc"));
 
     const unsub = onSnapshot(q , (snapshot) => 
     setNotes(snapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
   );
     return unsub;
-  }, []);
+  }, [userId]);
 
   const handleSubmitUser = (e) => {
     e.preventDefault();
 
     if (isFilledFields) {
       if (editableNoteData.isEdit){       
-        const editedData = notes;
-        editedData.splice(editableNoteData.noteId, 1, noteData);
+        const updatedNotes = [...notes];
+        updatedNotes.splice(editableNoteData.noteId, 1, noteData);
+        setNotes(updatedNotes);
 
-        setNotes(editedData);
-
-        const docRef = doc(db, "user-note", editableNoteData.noteId);
-        updateDoc(docRef, ...editedData);
+        const docRef = doc(db, "user-note", notes[editableNoteData.noteId].id);
+        updateDoc(docRef, noteData);
 
         setEditableNoteData({
           isEdit: false,
@@ -56,14 +55,11 @@ function CryptoNotes() {
         });
       } else {
 
-        addDoc(collection(db, "user-note"),{
-          cryptoName: noteData.cryptoName,
-          cryptoPrice: noteData.cryptoPrice,
-          cryptoAmount: noteData.cryptoAmount,
+        addDoc(collection(db, "user-note"), {
+          userId: userId,
+          ...noteData,
           timestamp: serverTimestamp(),
-        })
-
-        setNotes((prevState) => [...prevState, noteData]);
+        });
       }
 
       setNoteData(initialValues);
@@ -136,8 +132,8 @@ function CryptoNotes() {
           <CustomButton
             label={editableNoteData.isEdit ? "Изменить" : "Добавить"}
             classNames=""
-            handleClick={() => {}}
             type="submit"
+            handleClick={handleSubmitUser}
             disabled={!isFilledFields}
           />
         </form>

@@ -13,7 +13,7 @@ const CustomButton = ({
     <div className="custBtn">
       <button
         className={classNames}
-        onClick={() => handleClick(data)}
+        onClick={(e) => handleClick(e, data)}
         type={type}
         disabled={disabled}
       >

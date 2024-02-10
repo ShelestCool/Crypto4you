@@ -28,15 +28,23 @@ export function login(email, password) {
 export function logout() {
   return signOut(auth);
 }
-// Custom Hook
 
+// Custom Hook
 export function useAuth() {
-  const [ currentUser, setCurrentUser ] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, user => setCurrentUser(user));
+    const unsub = onAuthStateChanged(auth, async (user) => {
+      if (user) {
+        const isAdmin = user.uid === '2nYMG0TdNUWCxk1EZLXAWwz5ptC3'; // Проверяем конкретный UID
+        setCurrentUser({ ...user, isAdmin });
+      } else {
+        setCurrentUser(null);
+      }
+    });
+
     return unsub;
-  }, [])
+  }, []);
 
   return currentUser;
 }
