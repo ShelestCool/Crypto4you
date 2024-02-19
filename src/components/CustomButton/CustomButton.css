@@ -1,18 +1,15 @@
 .custBtn button {
-   background-color: orange;
-   border: 0px;
-   border-radius: 2px;
-   width: 90%;
-   margin: 5px;
-   padding: 5px;
-   color: white;
-   font-size: 18px;
-   transition: .5s;
-   font-weight: 500;
+    border: 0px;
+    border-radius: 2px;
+    margin: 5px;
+    padding: 5px;
+    color: white;
+    transition: .5s;
+    font-weight: 500;
  }
  
  .custBtn button:hover {
-   transition: .5s;
-   background-color: rgb(213, 213, 213);
-   color: rgb(120, 120, 120);
+    transition: .5s;
+    background-color: rgb(213, 213, 213);
+    color: rgb(53, 53, 53);
  }

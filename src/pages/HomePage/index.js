@@ -1,16 +1,15 @@
-
-import Info from "../../components/Info";
-import Slider from "../../components/Slider";
-import AddInfo from "../../components/AddInfo";
-import Info2 from "../../components/Info2";
+import Slider from "../../components/HomeComponents/Slider";
+import InfoBlock1 from "../../components/HomeComponents/InfoBlock1";
+import InfoBlock2 from "../../components/HomeComponents/InfoBlock2";
+import InfoBlock3 from "../../components/HomeComponents/InfoBlock3";
 
 const HomePage = () => {
     return (
         <div>
             <Slider />
-            <Info />
-            <AddInfo />
-            <Info2 />
+            <InfoBlock1 />
+            <InfoBlock2 />
+            <InfoBlock3 />
         </div>
     )
 }

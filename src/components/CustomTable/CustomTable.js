@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { Table } from "react-bootstrap";
 
-import EditButton from "../EditButton/EditButton";
+import CustomButton from "../CustomButton/CustomButton";
 
 const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
   const [coins, setCoins] = useState([]);
@@ -61,15 +61,21 @@ const CustomTable = ({ notes, handleEditClick, handleRemoveClick}) => {
             </td>
             <td>
               <div>
-                <EditButton
+                <CustomButton
                   label="Изменить"
+                  width="95%"
+                  fontSize="14px"
+                  color="#8c8585"
                   classNames="edit-ection"
                   handleClick={() => handleEditClick(note, note.id)}
                   type="button"
                 />
 
-                <EditButton
+                <CustomButton
                   label="Удалить"
+                  width="95%"
+                  fontSize="14px"
+                  color="#ff5959"
                   classNames="remove-action"
                   handleClick={() => handleRemoveClick(note.id)}
                   type="button"

@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
-import { useRef, useState} from 'react';
+import { useRef, useState } from "react";
 
-import { login, useAuth} from "../../firebase.js";
+import { login, useAuth } from "../../firebase.js";
 
 import "./login.css";
 
 const Login = () => {
-  const [ loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const currentUser = useAuth();
 
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const Login = () => {
 
   async function handleLogin() {
     setLoading(true);
-    try{
+    try {
       await login(emailRef.current.value, passwordRef.current.value);
       navigate("/");
     } catch {
@@ -27,21 +27,17 @@ const Login = () => {
   return (
     <div className="mainBlockAuth">
       <div className="authInputs">
-        <input
-          ref={emailRef}
-          type="email"
-          placeholder="Email"
-        />
+        <input ref={emailRef} type="email" placeholder="Email" />
       </div>
       <div className="authInputs">
-        <input
-          ref={passwordRef}
-          type="password"
-          placeholder="password"
-        />
+        <input ref={passwordRef} type="password" placeholder="password" />
       </div>
       <div className="authBtnSubmit">
-        <button disabled={loading || currentUser} onClick={handleLogin} className="authBtn">
+        <button
+          disabled={loading || currentUser}
+          onClick={handleLogin}
+          className="authBtn"
+        >
           Log In
         </button>
       </div>

@@ -1,28 +1,29 @@
 import React from "react";
-import "./CustomInput.css";
+import "./CustomArea.css";
 
-const CustomInput = ({
+const CustomArea = ({
   placeholder,
   handleChange,
   value,
   fieldName,
-  type,
   width,
-  height,
   classNames,
+  name="message",
+  rows
 }) => {
   return (
-    <div className="custInput">
-      <input
+    <div className="custArea">
+      <textarea
+        name={name}
+        rows={rows}
         className={classNames}
         placeholder={placeholder}
         onChange={(e) => handleChange(e, fieldName)}
         value={value}
-        type={type}
-        style={{ width: width, height: height }}
+        style={{ width: width }}
       />
     </div>
   );
 };
 
-export default CustomInput;
+export default CustomArea;

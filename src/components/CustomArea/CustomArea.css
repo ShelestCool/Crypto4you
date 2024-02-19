@@ -1,14 +1,13 @@
-.custInput input {
+.custArea textarea {
   outline:none;
 }
 
-.custInput input:hover{
+.custArea textarea:hover{
   border: 2px orange solid;
   border-radius: 3px;
-  transition: .2s;
 }
 
-.custInput input:focus{
+.custArea textarea:focus{
   border: 2px orange solid;
   box-shadow: 0px 0px 3px orange;
   border-radius: 7px;

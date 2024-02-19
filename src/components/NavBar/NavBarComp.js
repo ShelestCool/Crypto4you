@@ -11,14 +11,14 @@ import "./style.css";
 
 function NavBarComp() {
   const currentUser = useAuth();
-  const [ loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   async function handleLogout() {
     setLoading(true);
-    try{
+    try {
       await logout();
     } catch {
-      alert("Ошибка!")
+      alert("Ошибка!");
     }
     setLoading(false);
   }
