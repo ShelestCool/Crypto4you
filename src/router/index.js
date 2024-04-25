@@ -2,12 +2,15 @@ import {
   AboutPage,
   HomePage,
   NewsPage,
-  CryptocurrencyPage,
-  WhatIsBitcoinPage,
-  AltCoinsPage,
   LoginPage,
   RegisterPage,
   CryptoNotesPage,
+  CryptocurrencyPage,
+  WhatIsBlockChainPage,
+  NftTokensPage,
+  CryptoWalletPage,
+  WhatIsBitcoinPage,
+  AltCoinsPage,
 } from "../pages";
 
 export const routes = [
@@ -16,6 +19,9 @@ export const routes = [
   { path: "/about", element: <AboutPage /> },
   { path: "/cryptocurrency", element: <CryptocurrencyPage /> },
   { path: "/whatisbitcoin", element: <WhatIsBitcoinPage /> },
+  { path: "/whatisblockchain", element: <WhatIsBlockChainPage /> },
+  { path: "/nft-tokens", element: <NftTokensPage /> },
+  { path: "/cryptowallet", element: <CryptoWalletPage /> },
   { path: "/altcoins", element: <AltCoinsPage /> },
   { path: "/login", element: <LoginPage /> },
   { path: "/register", element: <RegisterPage /> },

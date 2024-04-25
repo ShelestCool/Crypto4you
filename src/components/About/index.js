@@ -55,7 +55,7 @@ const About = () => {
            
             <div>
               <p>По стратегическому партнерству и техническим вопросам<br/>
-              <span className="contactsMailsAbout">admin@crypto4you</span></p>
+              <span className="contactsMailsAbout">admin@zylbit</span></p>
             </div>
           </div>
 
@@ -65,7 +65,7 @@ const About = () => {
             </div>
 
             <div>
-              <p>По информационному партнерству, размещению рекламных статей, новостей и пресс-релизов<br/> <span className="contactsMailsAbout">content@crypto4you</span></p>
+              <p>По информационному партнерству, размещению рекламных статей, новостей и пресс-релизов<br/> <span className="contactsMailsAbout">content@zylbit</span></p>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ const About = () => {
             </div>
 
             <div>
-              <p>По вопросам размещения баннеров и рекламы на форуме<br/> <span className="contactsMailsAbout">contacts@crypto4you</span></p>
+              <p>По вопросам размещения баннеров и рекламы на форуме<br/> <span className="contactsMailsAbout">contacts@zylbit</span></p>
             </div>
           </div>
         </div>

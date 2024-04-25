@@ -1,21 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+import useAxios from "../../hooks/useAxios";
 
 import "./CustomSelect.css";
 
 const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
-  const [coins, setCoins] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
-      .then((res) => {
-        setCoins(res.data);
-      })
-      .catch((error) => console.log(error));
-  }, []);
+  const { response: coins } = useAxios(
+    "coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+  );
 
   return (
     <>
@@ -28,7 +19,7 @@ const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
         <option value="" hidden>
           Select Coin
         </option>
-        {coins.map((coin) => (
+        {coins && coins.map((coin) => (
           <option key={coin.id} value={coin.name}>
             {coin.name}
           </option>
@@ -39,3 +30,4 @@ const CustomSelect = ({ placeholder, handleChange, value, fieldName }) => {
 };
 
 export default CustomSelect;
+

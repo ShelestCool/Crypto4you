@@ -1,7 +1,7 @@
-import CryptoNotes from "../../components/CryptoNotes";
+import CryptoNotes from "../../../components/CryptoNotes";
 
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../firebase.js";
+import { useAuth } from "../../../firebase.js";
 import { Container } from "react-bootstrap";
 
 import "./CryptoNotesPage.css";

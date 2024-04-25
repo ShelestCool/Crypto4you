@@ -1,4 +1,4 @@
-import AltCoins from "../../components/AltCoins";
+import AltCoins from "../../../components/AltCoins";
 
 const AltCoinsPage = () => {
     return (

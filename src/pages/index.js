@@ -1,9 +1,12 @@
 export { default as HomePage } from "./HomePage";
 export { default as AboutPage } from "./AboutePage";
 export { default as NewsPage } from "./NewsPage";
-export { default as CryptocurrencyPage } from "./CryptocurrencyPage";
-export { default as WhatIsBitcoinPage } from "./WhatIsBitcoinPage";
-export { default as AltCoinsPage } from "./AltCoinsPage";
+export { default as CryptocurrencyPage } from "./ToolsMenu/CryptocurrencyPage";
+export { default as WhatIsBitcoinPage } from "./BeginnersMenu/WhatIsBitcoinPage";
+export { default as AltCoinsPage } from "./BeginnersMenu/AltCoinsPage";
+export { default as NftTokensPage } from "./BeginnersMenu/NftTokens";
+export { default as WhatIsBlockChainPage } from "./BeginnersMenu/WhatIsBlockChain";
+export { default as CryptoWalletPage } from "./BeginnersMenu/CryptoWallet";
 export { default as LoginPage } from "./LoginPage";
 export { default as RegisterPage } from "./RegisterPage";
-export { default as CryptoNotesPage } from "./CryptoNotesPage";
+export { default as CryptoNotesPage } from "./ToolsMenu/CryptoNotesPage";

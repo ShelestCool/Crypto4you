@@ -1,0 +1,70 @@
+.blockchain1 {
+    width: 100%;
+}
+
+.blockchain1Div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainTitile {
+    margin-bottom: 30px;
+}
+
+.infoArticle {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.infoArticle p {
+    color: gray;
+    text-align: justify;
+}
+
+.part1Article {
+    display: flex;
+    justify-content: space-between;
+}
+
+.part1Article div {
+    width: 48%;
+}
+
+.mainBlockWIB p {
+    font-size: 16px;
+}
+
+.mainBlockWIB a {
+    color: orange;
+}
+
+.mainBlockWIB a:hover {
+    text-decoration: none;
+}
+
+.part4Article {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.part4Article p {
+    text-align: justify;
+}
+
+.part4Article h3 {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.part4Article h6 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.part4Article li {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: justify;
+}

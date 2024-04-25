@@ -1,4 +1,4 @@
-import WhatIsBitcoin from "../../components/WhatIsBitcoin";
+import WhatIsBitcoin from "../../../components/WhatIsBitcoin";
 
 const WhatIsBitcoinPage = () => {
     return (

@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import ApiCrypto from "../../components/ApiCrypto";
+import ApiCrypto from "../../../components/ApiCrypto";
 
 const CryptocurrencyPage = () => {
   return (
