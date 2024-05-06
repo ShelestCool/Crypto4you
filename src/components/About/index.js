@@ -10,7 +10,7 @@ const About = () => {
     function sendEmail(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_2v4gknu', 'template_pa8557x', e.target, 'sadl_bsEMJ13vyoX7')
+      emailjs.sendForm('service_3ga5twl', 'template_qevxp03', e.target, 'sadl_bsEMJ13vyoX7')
       .then(function() {
         alert('SUCCESS!');
 
