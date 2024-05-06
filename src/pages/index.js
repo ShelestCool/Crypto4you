@@ -2,6 +2,7 @@ export { default as HomePage } from "./HomePage";
 export { default as AboutPage } from "./AboutePage";
 export { default as NewsPage } from "./NewsPage";
 export { default as CryptocurrencyPage } from "./ToolsMenu/CryptocurrencyPage";
+export { default as CryptoDetail } from "./ToolsMenu/CryptoDetail";
 export { default as WhatIsBitcoinPage } from "./BeginnersMenu/WhatIsBitcoinPage";
 export { default as AltCoinsPage } from "./BeginnersMenu/AltCoinsPage";
 export { default as NftTokensPage } from "./BeginnersMenu/NftTokens";

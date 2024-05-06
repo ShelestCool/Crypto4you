@@ -57,18 +57,16 @@ function AddNews() {
     const file = e.target.files[0];
     const storageReference = storageRef(getStorage(), `images/${file.name}`);
     const uploadTask = uploadBytesResumable(storageReference, file);
-
+  
     uploadTask.on(
       "state_changed",
       (snapshot) => {
         // Обработка состояния загрузки
       },
       (error) => {
-        // Обработка ошибок загрузки
-        console.error(error); // Выводим ошибку в консоль для отладки
+        console.error(error);
       },
       async () => {
-        // Загрузка завершена успешно
         try {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           setNewPost({ ...newPost, image: downloadURL });

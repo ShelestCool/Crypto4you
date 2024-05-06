@@ -3,7 +3,7 @@ import NavBarComp from "./components/NavBar/NavBarComp";
 import ScrollTop from "./components/ScrollTop";
 import Footer from "./components/Footer";
 
-import "./App.css";
+import "./index.css";
 import AppRouter from "./components/AppRouter";
 
 function App() {

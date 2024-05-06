@@ -26,7 +26,7 @@ const About = () => {
       <Container className="mainBlockAbout">
         <h2 className="headerh2"><strong>О нас</strong></h2>
         <p>
-          <b>Crypto4you</b> - русскоязычный информационный сайт и форум о
+          <b>ZylBit</b> - русскоязычный информационный сайт и форум о
           криптовалютах.
         </p>
 

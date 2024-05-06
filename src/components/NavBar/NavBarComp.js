@@ -28,7 +28,7 @@ function NavBarComp() {
       <Container>
         <Navbar.Brand as={Link} to="/" className="titleNav">
           <img src={BitcoinImg} alt="bitcoin" className="bitcoinImg" />
-          <span className="text-yellow-500">Z</span>ylBit
+          ZylBit
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
