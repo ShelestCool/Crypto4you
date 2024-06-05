@@ -33,6 +33,7 @@
     "react-redux-firebase": "^3.11.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
+    "react-select": "^5.8.0",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "rss-parser": "^3.12.0",

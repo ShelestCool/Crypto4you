@@ -12,12 +12,16 @@ import {
   WhatIsBitcoinPage,
   AltCoinsPage,
   CryptoDetail,
+  Account,
+  CertificatePage,
 } from "../pages";
 
 export const routes = [
   { path: "/", element: <HomePage /> },
   { path: "/news", element: <NewsPage /> },
   { path: "/about", element: <AboutPage /> },
+  { path: "/account", element: <Account /> },
+  { path: "/certificate", element: <CertificatePage /> },
   { path: "/cryptocurrency", element: <CryptocurrencyPage /> },
   { path: "/coin/:id", element: <CryptoDetail /> },
   { path: "/whatisbitcoin", element: <WhatIsBitcoinPage /> },

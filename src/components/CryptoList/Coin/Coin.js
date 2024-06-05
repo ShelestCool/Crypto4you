@@ -17,9 +17,9 @@ const Coin = ({ coin }) => {
           <div className="coin-data">
             <h2 className="coin-price coinName">{currencyFormat(coin.current_price)}</h2>
             {coin.price_change_percentage_24h < 0 ? (
-              <h2 className="coin-chart coinName" style={{ color: 'red' }}><TrendingDown />{coin.price_change_percentage_24h}</h2>
+              <h2 className="coin-chart coinName" style={{ color: 'red' }}><TrendingDown />{coin.price_change_percentage_24h.toFixed(2)}%</h2>
             ) : (
-              <h2 className="coin-chart coinName" style={{ color: 'green' }} ><TrendingUp />{coin.price_change_percentage_24h}</h2>
+              <h2 className="coin-chart coinName" style={{ color: 'green' }} ><TrendingUp />{coin.price_change_percentage_24h.toFixed(2)}%</h2>
             )}
             <h2 className="coin-marketcap coinName">
               Mkt Cap: {currencyFormat(coin.market_cap)}

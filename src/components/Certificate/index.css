@@ -1,0 +1,17 @@
+.certificate li {
+  padding-bottom: 10px;
+}
+
+.certificate p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.aboutProg {
+  display: flex;
+  justify-content: flex-end; 
+}
+
+.aboutProg2 {
+  padding-bottom: 50px;
+}

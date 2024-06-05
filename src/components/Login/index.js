@@ -27,10 +27,10 @@ const Login = () => {
   return (
     <div className="mainBlockAuth">
       <div className="authInputs">
-        <input ref={emailRef} type="email" placeholder="Email" />
+        <input ref={emailRef} type="email" placeholder="Почта" />
       </div>
       <div className="authInputs">
-        <input ref={passwordRef} type="password" placeholder="password" />
+        <input ref={passwordRef} type="password" placeholder="Пароль" />
       </div>
       <div className="authBtnSubmit">
         <button
@@ -38,7 +38,7 @@ const Login = () => {
           onClick={handleLogin}
           className="authBtn"
         >
-          Log In
+          Вход
         </button>
       </div>
     </div>

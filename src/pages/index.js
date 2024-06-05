@@ -1,6 +1,8 @@
 export { default as HomePage } from "./HomePage";
 export { default as AboutPage } from "./AboutePage";
 export { default as NewsPage } from "./NewsPage";
+export { default as Account } from "./Account";
+export { default as CertificatePage } from "./CertificatePage";
 export { default as CryptocurrencyPage } from "./ToolsMenu/CryptocurrencyPage";
 export { default as CryptoDetail } from "./ToolsMenu/CryptoDetail";
 export { default as WhatIsBitcoinPage } from "./BeginnersMenu/WhatIsBitcoinPage";

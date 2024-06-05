@@ -1,0 +1,32 @@
+.personal-account {
+  margin-top: 20px;
+  height: 500px;
+  text-align: center;
+}
+
+.account-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.account-info {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.reset-button {
+  background-color: #007bff;
+  border: none;
+  font-size: 1rem;
+  color: white;
+}
+
+.account-button {
+  margin-top: 50px;
+}
+
+.account-info p {
+  text-align: left;
+  margin-bottom: 40px;
+  padding-left: 10px;
+}

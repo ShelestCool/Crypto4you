@@ -9,24 +9,25 @@ import {
   deleteDoc,
   getDocs,
 } from "firebase/firestore";
-
 import {
   getStorage,
   uploadBytesResumable,
   getDownloadURL,
   ref as storageRef,
+  deleteObject,
 } from "firebase/storage";
 
 import CustomButton from "../CustomButton/CustomButton";
 import CustomInput from "../CustomInput/CustomInput";
+import CustomArea from "../CustomArea/CustomArea";
 
 import "./style.css";
-import CustomArea from "../CustomArea/CustomArea";
 
 function AddNews() {
   const user = useAuth();
   const [showModal, setShowModal] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
   const [isEditing, setIsEditing] = useState(false);
   const [editedPost, setEditedPost] = useState({
     id: null,
@@ -39,6 +40,7 @@ function AddNews() {
     image: "",
     description: "",
   });
+  const [newImage, setNewImage] = useState(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -55,44 +57,68 @@ function AddNews() {
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
+    setNewImage(file);
+  };
+
+  const handleUploadAndGetURL = async (file) => {
     const storageReference = storageRef(getStorage(), `images/${file.name}`);
     const uploadTask = uploadBytesResumable(storageReference, file);
-  
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        // Обработка состояния загрузки
-      },
-      (error) => {
-        console.error(error);
-      },
-      async () => {
-        try {
-          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
-          setNewPost({ ...newPost, image: downloadURL });
-        } catch (error) {
-          console.error("Error getting download URL:", error);
+    await new Promise((resolve, reject) => {
+      uploadTask.on(
+        "state_changed",
+        null,
+        (error) => {
+          console.error(error);
+          reject(error);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref)
+            .then(resolve)
+            .catch(reject);
         }
-      }
-    );
+      );
+    });
+    return getDownloadURL(storageReference);
   };
 
   const addPost = async () => {
-    const docRef = await addDoc(collection(db, "crypto-news"), newPost);
-    setPosts([...posts, { ...newPost, id: docRef.id }]);
+    if (newImage) {
+      const downloadURL = await handleUploadAndGetURL(newImage);
+      const post = { ...newPost, image: downloadURL };
+      const docRef = await addDoc(collection(db, "crypto-news"), post);
+      setPosts([...posts, { ...post, id: docRef.id }]);
+    }
     closeModal();
   };
 
   const savePost = async () => {
-    await updateDoc(doc(db, "crypto-news", editedPost.id), editedPost);
+    let updatedPost = { ...editedPost };
+    if (newImage) {
+      if (editedPost.image) {
+        const oldImageRef = storageRef(getStorage(), editedPost.image);
+        await deleteObject(oldImageRef).catch((error) => {
+          console.error("Error deleting old image:", error);
+        });
+      }
+      const downloadURL = await handleUploadAndGetURL(newImage);
+      updatedPost = { ...editedPost, image: downloadURL };
+    }
+    await updateDoc(doc(db, "crypto-news", editedPost.id), updatedPost);
     const updatedPosts = posts.map((post) =>
-      post.id === editedPost.id ? editedPost : post
+      post.id === editedPost.id ? updatedPost : post
     );
     setPosts(updatedPosts);
     closeModal();
   };
 
   const deletePost = async (postId) => {
+    const postToDelete = posts.find((post) => post.id === postId);
+    if (postToDelete && postToDelete.image) {
+      const imageRef = storageRef(getStorage(), postToDelete.image);
+      await deleteObject(imageRef).catch((error) => {
+        console.error("Error deleting image:", error);
+      });
+    }
     await deleteDoc(doc(db, "crypto-news", postId));
     const updatedPosts = posts.filter((post) => post.id !== postId);
     setPosts(updatedPosts);
@@ -114,7 +140,12 @@ function AddNews() {
     setEditedPost({ id: null, title: "", image: "", description: "" });
     setNewPost({ title: "", image: "", description: "" });
     setIsEditing(false);
+    setNewImage(null);
   };
+
+  const filteredPosts = posts.filter((post) =>
+    post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <Container>
@@ -138,6 +169,19 @@ function AddNews() {
               </div>
             )}
           </div>
+        </div>
+        
+        <div className="search">
+        <p className="searchText">Поиск</p>
+          <CustomInput
+            placeholder="Поиск новости"
+            classNames="searchInput"
+            type="text"
+            width="40%"
+            height="40px"
+            value={searchTerm}
+            handleChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
         <Modal show={showModal} onHide={closeModal}>
@@ -219,14 +263,18 @@ function AddNews() {
 
         {/* Вывод списка постов */}
         <div className="newsBlock">
-          {posts.map((post) => (
+          {filteredPosts.map((post) => (
             <Card key={post.id} className="postBlock">
-              <Card.Img
-                className="imgPost"
-                variant="top"
-                src={post.image}
-                alt={post.title}
-              />
+              {post.image ? (
+                <Card.Img
+                  className="imgPost"
+                  variant="top"
+                  src={post.image}
+                  alt={post.title}
+                />
+              ) : (
+                <div className="no-image">Нет изображения</div>
+              )}
               <Card.Body>
                 <Card.Title className="titlePost">{post.title}</Card.Title>
                 <Card.Text className="descriptionPost">

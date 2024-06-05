@@ -16,7 +16,7 @@ const RegisterPage = () => {
         </h1>
         <SignUp />
         <p align="center">
-          У вас уже есть аккаунт? <Link to="/Login">Log In</Link>
+          У вас уже есть аккаунт? <Link to="/Login">Вход</Link>
         </p>
       </div>
     </Container>

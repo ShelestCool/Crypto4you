@@ -30,7 +30,7 @@ const SignUp = () => {
         <input
           ref={emailRef}
           type="email"
-          placeholder="Email"
+          placeholder="Почта"
           required
         />
       </div>
@@ -38,12 +38,12 @@ const SignUp = () => {
         <input
           ref={passwordRef}
           type="password"
-          placeholder="password"
+          placeholder="Пароль"
         />
       </div>
       <div className="authBtnSubmit">
         <button disabled={loading || currentUser} onClick={handleSignup} className="authBtn">
-          Sign Up
+          Регистрация
         </button>
       </div>
     </div>

@@ -4,6 +4,7 @@ import emailjs from "emailjs-com";
 
 import "./about.css";
 import aboutMail from "../../img/aboutMail.png"
+import { Link } from "react-router-dom";
 
 const About = () => {
 
@@ -26,7 +27,7 @@ const About = () => {
       <Container className="mainBlockAbout">
         <h2 className="headerh2"><strong>О нас</strong></h2>
         <p>
-          <b>ZylBit</b> - русскоязычный информационный сайт и форум о
+          <b>Blockchain</b> - русскоязычный информационный сайт и форум о
           криптовалютах.
         </p>
 
@@ -46,6 +47,8 @@ const About = () => {
           интересующую вас тему.
         </p>
 
+        <Link to="/certificate">Справка</Link>
+
         <div>
           <h3 className="headerh3">Контакты</h3>
           <div className="aboutContacts">
@@ -55,7 +58,7 @@ const About = () => {
            
             <div>
               <p>По стратегическому партнерству и техническим вопросам<br/>
-              <span className="contactsMailsAbout">admin@zylbit</span></p>
+              <span className="contactsMailsAbout">admin@blockchain.com</span></p>
             </div>
           </div>
 
@@ -65,7 +68,7 @@ const About = () => {
             </div>
 
             <div>
-              <p>По информационному партнерству, размещению рекламных статей, новостей и пресс-релизов<br/> <span className="contactsMailsAbout">content@zylbit</span></p>
+              <p>По информационному партнерству, размещению рекламных статей, новостей и пресс-релизов<br/> <span className="contactsMailsAbout">content@blockchain.com</span></p>
             </div>
           </div>
 
@@ -75,7 +78,7 @@ const About = () => {
             </div>
 
             <div>
-              <p>По вопросам размещения баннеров и рекламы на форуме<br/> <span className="contactsMailsAbout">contacts@zylbit</span></p>
+              <p>По вопросам размещения баннеров и рекламы на форуме<br/> <span className="contactsMailsAbout">contacts@blockchain.com</span></p>
             </div>
           </div>
         </div>

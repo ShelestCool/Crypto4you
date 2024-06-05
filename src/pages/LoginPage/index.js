@@ -16,7 +16,7 @@ const LoginPage = () => {
         </h1>
         <Login />
         <p align="center">
-          У вас нет аккаунта? <Link to="/register">Sing Up</Link>
+          У вас нет аккаунта? <Link to="/register">Регистрация</Link>
         </p>
       </div>
     </Container>

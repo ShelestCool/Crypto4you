@@ -28,7 +28,7 @@ function NavBarComp() {
       <Container>
         <Navbar.Brand as={Link} to="/" className="titleNav">
           <img src={BitcoinImg} alt="bitcoin" className="bitcoinImg" />
-          ZylBit
+          Blockchain
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -78,7 +78,9 @@ function NavBarComp() {
           {currentUser ? (
             <div className="logOutButton">
               <div>
+              <Nav.Link as={Link} to="/account">
                 <p className="emailLogOut">{currentUser?.email}</p>
+              </Nav.Link>
               </div>
               <BsBoxArrowRight
                 disabled={loading || !currentUser}
@@ -89,10 +91,10 @@ function NavBarComp() {
           ) : (
             <div className="authNavButtons">
               <Nav.Link as={Link} to="/login">
-                <Button variant="outline-secondary">Log In</Button>
+                <Button variant="outline-secondary">Вход</Button>
               </Nav.Link>
               <Nav.Link as={Link} to="/register">
-                <Button variant="warning">JOIN</Button>
+                <Button variant="warning">Регистрация</Button>
               </Nav.Link>
             </div>
           )}
