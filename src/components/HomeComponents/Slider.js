@@ -15,7 +15,7 @@ function Slider() {
         <img className="d-block w-100" src={slider1} alt="First slide" />
         <Carousel.Caption>
           <h3 className="titleCrypto">Bitcoin</h3>
-          <p className="textCrypto">Main crypto coin.</p>
+          <p className="textCrypto">Основная криптомонета.</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -23,7 +23,7 @@ function Slider() {
         <img className="d-block w-100" src={slider2} alt="First slide" />
         <Carousel.Caption>
           <h3 className="titleCrypto">Ethereum</h3>
-          <p className="textCrypto">Main crypto coin.</p>
+          <p className="textCrypto">Основная криптомонета.</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -31,7 +31,7 @@ function Slider() {
         <img className="d-block w-100" src={slider3} alt="First slide" />
         <Carousel.Caption>
           <h3 className="titleCrypto">XRP</h3>
-          <p className="textCrypto">Main crypto coin.</p>
+          <p className="textCrypto">Основная криптомонета.</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -39,7 +39,7 @@ function Slider() {
         <img className="d-block w-100" src={slider4} alt="First slide" />
         <Carousel.Caption>
           <h3 className="titleCrypto">LiteCoin</h3>
-          <p className="textCrypto">Main crypto coin.</p>
+          <p className="textCrypto">Основная криптомонета.</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

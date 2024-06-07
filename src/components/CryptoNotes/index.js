@@ -115,7 +115,7 @@ function CryptoNotes() {
         className="formNotes"
       >
         <CustomSelect
-          placeholder="select"
+          placeholder="Выбрать"
           handleChange={handleInputChange}
           value={noteData.cryptoName}
           fieldName="cryptoName"

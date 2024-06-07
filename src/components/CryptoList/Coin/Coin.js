@@ -28,7 +28,7 @@ const Coin = ({ coin }) => {
         </div>
       </div>
     </Link>
-  )
-}
+  );
+};
 
 export default Coin;
