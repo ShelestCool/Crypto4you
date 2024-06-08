@@ -17,7 +17,7 @@ function AltCoins() {
             <Container className="altMainBlockWIB">
                 <base target="_blank"></base>
                 <div className="altInfoArticle">
-                    <p>Опубликовано: 01.05.2022</p>
+                    <p>Опубликовано: 01.05.2024</p>
                     <p>Время чтения статьи: 9 мин.</p>
                 </div>
                 <h1 className="altMainTitile">Другие криптовалюты - форки, альткойны</h1>

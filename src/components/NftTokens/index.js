@@ -10,7 +10,7 @@ function NftTokens() {
             <Container className="mainBlockWIB">
                 <base target="_blank"></base>
                 <div className="infoArticle">
-                    <p>Опубликовано: 25.04.2024</p>
+                    <p>Опубликовано: 05.05.2024</p>
                     <p>Время чтения статьи: 6 мин.</p>
                 </div>
                 <h1 className="mainTitile">$11,8 млн за виртуальный объект: что такое NFT-токены и как они создаются</h1>

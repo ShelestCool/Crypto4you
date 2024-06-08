@@ -16,7 +16,7 @@ function WhatIsBitcoin() {
             <Container className="mainBlockWIB">
                 <base target="_blank"></base>
                 <div className="infoArticle">
-                    <p>Опубликовано: 01.05.2022</p>
+                    <p>Опубликовано: 01.04.2024</p>
                     <p>Время чтения статьи: 9 мин.</p>
                 </div>
                 <h1 className="mainTitile">Что такое Биткон?</h1>
